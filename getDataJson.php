@@ -48,7 +48,7 @@ if($sqli = new mysqli($servername, $username, $parol, $dbname)){
 
 if($q == 2){ //Вывод  таблицы
 	if($search == 'false'){ //Вывод всей таблицы
-		$resAll = $sqli->query("SELECT * FROM $table LIMIT $start , $limit");
+		$resAll = $sqli->query("SELECT * FROM $table ORDER BY $sidx $sord LIMIT $start , $limit");
 		while($row = $resAll->fetch_array(MYSQL_BOTH)){
 		    $responce->rows[$i]['id']=$row[id];
 		    $responce->rows[$i]['cell']=array($row[id],$row[date],$row[amount],$row[tax],$row[total],$row[note]);
